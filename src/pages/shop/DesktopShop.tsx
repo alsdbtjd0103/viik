@@ -8,26 +8,22 @@ import React from 'react';
 import useBgStore from 'src/store/useTextColor';
 
 const DesktopShop = () => {
-   const { imageId, setImageId } = useBgStore();
    const scrollY = useScrollPosition();
    const [flag, setFlag] = React.useState(false);
    React.useEffect(() => {
       if (scrollY >= window.innerHeight / 2 - 40) {
-         if (imageId !== 3) {
-            setImageId(3);
-         }
          setFlag(true);
       } else {
          setFlag(false);
       }
-   }, [imageId, scrollY]);
+   }, [scrollY]);
    const mount = useMount();
 
    return (
       <div className='relative h-screen '>
          <div
             style={{
-               backgroundImage: 'url(' + `/img/main_pc${imageId}.png` + ')',
+               backgroundImage: 'url(' + `/img/shop_pc.png` + ')',
                backgroundSize: 'cover',
                backgroundRepeat: 'no-repeat',
                transition: 'background-image ease-in 0.5s',
